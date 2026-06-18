@@ -1,0 +1,134 @@
+@import "tailwindcss";
+
+/* Custom animation for scroll dot */
+@keyframes scrollBounce {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(6px);
+    opacity: 0.5;
+  }
+}
+
+.scroll-dot {
+  animation: scrollBounce 2s ease-in-out infinite;
+}
+
+/* Navigation scroll state */
+.nav-scrolled {
+  @apply bg-white/90 backdrop-blur-lg shadow-sm border-b border-slate-100;
+}
+
+/* Smooth section reveals */
+.feature-card {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+.feature-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-card:nth-child(2) { transition-delay: 0.1s; }
+.feature-card:nth-child(3) { transition-delay: 0.2s; }
+.feature-card:nth-child(4) { transition-delay: 0.3s; }
+
+/* Program card hover animations */
+.program-card {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.program-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.program-card:nth-child(2) { transition-delay: 0.15s; }
+.program-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* Pricing card animations */
+.pricing-card {
+  opacity: 0;
+  transform: translateY(40px) scale(0.95);
+}
+
+.pricing-card.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.pricing-card:nth-child(2) { transition-delay: 0.15s; }
+.pricing-card:nth-child(3) { transition-delay: 0.3s; }
+
+/* Hero content entrance */
+.hero-content {
+  opacity: 0;
+  transform: translateY(60px);
+}
+
+.hero-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Mobile responsive 3D canvas sizing */
+@media (max-width: 768px) {
+  #three-container canvas {
+    width: 100% !important;
+    height: 100% !important;
+  }
+  #three-anchor {
+    height: 300px;
+  }
+}
+@media (max-width: 480px) {
+  #three-anchor {
+    height: 250px;
+  }
+}
+/* Ensure 3D is visible on tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  #three-anchor {
+    height: 400px;
+  }
+}
+/* Smooth transitions for section headers */
+#features h2,
+#programs h2,
+#pricing h2 {
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#features h2.section-visible,
+#programs h2.section-visible,
+#pricing h2.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Footer CTA entrance */
+#cta h2 {
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+#cta h2.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Three.js canvas */
+#three-container canvas {
+  display: block;
+}
